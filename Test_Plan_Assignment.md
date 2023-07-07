@@ -1,4 +1,7 @@
-# 1.	Generating code for an empty interface
+
+# This test plan contains test cases for verifying the functionality of the "Implement interface" feature in GoLand IDE. The focus here is on testing positive scenarios, following the available documentation for the feature.
+
+## 1.	Generating code for an empty interface
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -23,7 +26,7 @@ type TestedStruct struct {
 ### Result:
 -	Check file struct.go: There are no implemented func
 
-# 2. Generating code for an interface with 1 method
+## 2. Generating code for an interface with 1 method
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -60,7 +63,7 @@ func (t TestedStruct) SomeMethod(){
 	panic("implement me")
 }
 ```
-# 3. Generating code for an interface with > 1 method
+## 3. Generating code for an interface with > 1 method
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -117,7 +120,7 @@ func (t TestedStruct) SomeMethodN(){
 }
 ```
 
-# 4. Generating code for an interface with existing methods in a structure
+## 4. Generating code for an interface with existing methods in a structure
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -175,7 +178,7 @@ func (t TestedStruct) SomeMethod2(){
 }
 ```
 
-# 5. Generating code when implementing an interface with nested interface
+## 5. Generating code when implementing an interface with nested interface
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -216,7 +219,7 @@ func (t TestedStruct) SomeMethod(){
 	panic("implement me")
 }
 ```
-# 6. Generating code when implementing an interface with methods that have arguments
+## 6. Generating code when implementing an interface with methods that have arguments
 
 ### Preconditions:
 -	Project contains file interface.go with following code:
@@ -254,7 +257,7 @@ func (t TestedStruct) MethodWithArgs(arg1 string, arg2 string){
 	panic("implement me")
 }
 ```
-# 7. Generating code when implementing an interface with methods that have arguments of different types
+## 7. Generating code when implementing an interface with methods that have arguments of different types
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -291,7 +294,7 @@ func (t TestedStruct) MethodWithArgs(arg1 string, arg2 int){
 	panic("implement me")
 }
 ```
-# 8. Generating code when implementing an interface with methods that have only argument type
+## 8. Generating code when implementing an interface with methods that have only argument type
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -328,7 +331,7 @@ func (t TestedStruct) MethodWithArgs(s string, i int){
 	panic("implement me")
 }
 ```
-# 9. Test Scenario: Generating code when implementing an interface with methods that return data.
+## 9. Test Scenario: Generating code when implementing an interface with methods that return data.
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -365,7 +368,7 @@ func (t TestedStruct) MethodWithReturn()(arg1 string){
 	panic("implement me")
 }
 ```
-# 10. Generating code when implementing an interface with methods that return data without specifying arguments.
+## 10. Generating code when implementing an interface with methods that return data without specifying arguments.
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -403,7 +406,7 @@ func (t TestedStruct) MethodWithArgs() (string, int) {
 }
 ```
 
-# 11. Generating code when implementing an interface with methods that return data with different types
+## 11. Generating code when implementing an interface with methods that return data with different types
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -441,7 +444,7 @@ func (t TestedStruct) MethodWithArgs()(arg1 string, arg2 int){
 }
 ```
 
-# 12. Generating code for multiple interface implementation
+## 12. Generating code for multiple interface implementation
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -504,7 +507,7 @@ func (t TestedStruct) Method2(){
 }
 ```
 
-# 13. Generating code when implementing an interface with methods that have nested structs as arguments:
+## 13. Generating code when implementing an interface with methods that have nested structs as arguments:
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -545,7 +548,7 @@ func (t TestedStruct) Method1(arg NestedStruct){
 	panic("implement me")
 }
 ```
-# 14. Generating code for an interface with methods having variadic arguments
+## 14. Generating code for an interface with methods having variadic arguments
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
@@ -582,7 +585,7 @@ func (t TestedStruct) MethodWithReturn(args ...int){
 	panic("implement me")
 }
 ```
-# 15. Generating code for an interface with an embedded type
+## 15. Generating code for an interface with an embedded type
 ### Preconditions:
 -	Project contains file interface.go with following code:
 ```
