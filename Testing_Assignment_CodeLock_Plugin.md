@@ -1,8 +1,8 @@
 # Within the scope of the given task, the CodeLock plugin for IntelliJ IDEA 7 was tested, and the following bugs were found:
 
-## 1. Class/Region locked. The code is highlighted with a blue background only after placing the cursor on the line
+## 1. Class or region locking. The code is highlighted with a blue background only after placing the cursor in the editor
 ### Preconditions:
-Project contains Class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -10,28 +10,38 @@ public class Class2 {
 }
 ```
 ### STR:
-IDE -> Project tree -> Select Class1 in tree -> Right click -> Code Lock -> Lock Code
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Select "Class1" in the tree
+-	Invoke the context menu by right-clicking
+-	Select "CodeLock" from the context menu
+-	Press "Code Lock"
 ### Result:
-The code is highlighted with a blue background only after placing the cursor on the line
+The code in the editing window is not highlighted with a blue background, only after placing the cursor in the editing window, the code is highlighted with a blue background
 ### Expected result:
-The code is highlighted with a blue background immediately after locking
+The code in the editing window is instantly highlighted with a blue background
 
-## 2. Class/Region unlocked. The code is not cleared from the blue background highlighting until the cursor is placed on the line.
+## 2. Unlocking the class or region. The code stops being highlighted with a blue background only after placing the cursor in the editor
 ### Preconditions:
-Project contains Class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
 public class Class1 {
 }
 ```
-Class1 is locked
+-	Class1 is locked and highlighted with a blue background
 ### STR:
-IDE -> Code lock side menu -> Select locked Class1 -> Press remove button
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Open the CodeLock menu
+-	The locked class is displayed in the list of elements
+-	Select Class1
+-	Press "Remove <<" button
 ### Result:
-The code is not cleared from the blue background highlighting until the cursor is placed on the line.
+The code in the editing window is not cleared from the blue background until the cursor is placed in the editing window
 ### Expected result:
-The code is cleared from the blue background highlighting immediately after unlocking.
+The code is cleared from the blue background immediately after unlocking
 
 ## 3. It is possible to refactor blocked code
 ### Preconditions:
