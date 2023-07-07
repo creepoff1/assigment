@@ -539,10 +539,10 @@ package main
 
 
 type TestedInterface interface {
-	Method1(arg NestedStruct)
+	Method1(arg CalledStruct)
 }
 
-type NestedStruct struct {
+type CalledStruct struct {
 	Value int
 }
 ```
@@ -569,7 +569,7 @@ package main
 type TestedStruct struct {
 }
 
-func (t TestedStruct) Method1(arg NestedStruct){
+func (t TestedStruct) Method1(arg CalledStruct){
 	//TODO implement me
 	panic("implement me")
 }
