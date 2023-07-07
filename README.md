@@ -21,7 +21,7 @@ type TestedStruct struct {
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
 ### Result:
--	Check file struct.go: There are no implemented methods
+-	Check file struct.go: There are no implemented func
 
 # 2. Generating code for an interface with 1 method
 ### Preconditions:
