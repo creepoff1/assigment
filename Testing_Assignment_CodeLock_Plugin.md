@@ -43,44 +43,54 @@ The code in the editing window is not cleared from the blue background until the
 ### Expected result:
 The code is cleared from the blue background immediately after unlocking
 
-## 3. It is possible to refactor blocked code
+## 3. Is it possible to refactor locked code
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
 public class Class1 {
 }
 ```
-Class1 is locked
+-	Class1 is locked and highlighted with a blue background
 ### STR:
-IDE -> Project tree -> Select Class1 in tree -> Open Class1 to edit -> Right click on class name -> Refactor -> Rename -> Type new name and press Refactor
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Right-click on the class name
+-	Select "Refactor" from the context menu
+-	Select "Rename" from the context menu
+-	Enter a new name for the class: Class1_new
+-	Press "Refactor"
 ### Result:
-Class name is changed
+The class name has been changed
 ### Expected result:
-Impossible to change class name (code is locked)
+The class name should not be changed, as the class is locked
 
-## 4. It is possible to delete blocked code from Project tree
+## 4. It is possible to remove the locked class from the project tree
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
 public class Class1 {
 }
 ```
-Class1 is locked
+-	Class1 is locked and highlighted with a blue background
 ### STR:
-IDE -> Project tree -> Select Class1 in tree -> Right click on Class1 -> Delete
+-	Open the Project tree
+-	Select Class1
+-	Right-click on the Class1
+-	Select "Delete" from context menu
+-	Press  "OK"
 ### Result:
-Class1 is deleted
-CodeLock still shows Class1 as locked
+Class1 has been deleted
+Codelock displays Class1 as locked
 ### Expected result:
-Class1 isn't deleted (code is locked)
+Class1 cannot be deleted because it is locked
 
-## 5. It is possible to lock already locked region
+## 5. It is possible to lock an already locked region
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -89,18 +99,24 @@ public class Class1 {
 	private String myText;
 }
 ```
-Region 	```private String myText;``` is locked
+-	The region ```private String myText;``` is locked
 ### STR:
-IDE -> Project tree menu -> Select Class1 in tree -> Open Class1 to edit -> mark string "private String myText;" -> Right click -> 	CodeLock -> Lock Region
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Highlight the line ```private String myText;```
+-	Right-click on the line ```private String myText;```
+-	Select "CodeLock" from context menu
+-	Select "Lock region" from context menu
 ### Result:
 Check Codelock tool window ->  Regions
-2 same regions are shows
-### Expected result:
-It's impossible to add the same region twice
 
-## 6. Goto for Regions. The cursor is not set at the beginning or end of the locked region
+A region with the same "from" and "length" values has been added again
+### Expected result:
+It should be impossible to add duplicate regions
+
+## 6. GoTo for regions, the cursor should be placed at the beginning or end of the locked region
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -109,18 +125,20 @@ public class Class1 {
 	private String myText;
 }
 ```
-Region 	```private String myText;``` is locked
+-	The region ```private String myText;``` is locked
 ### STR:
-IDE -> Codelock tool window -> Regions -> Select blocked region -> GoTo..
+-	Open the CodeLock menu
+-	Select "Regions"
+-	Select the locked region
+-	Press the "GoTo.." button
 ### Result:
-File Class1 opened but the cursor is not set at the beginning or end of the locked region
-2 same regions shows
+Class1 opened in the editing window, but the cursor was not placed at the beginning or end of the locked region
 ### Expected result:
-The cursor is set at the beginning or end of the locked region
+The cursor is placed at the beginning or end of the locked region
 
 ## 7. Is it possible to lock an empty region
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -130,16 +148,21 @@ public class Class1 {
 }
 ```
 ### STR:
-IDE -> Project tree menu -> Open Class1 -> Put cursor on an empty string -> Right click -> CodeLock -> Lock Region
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Place the cursor anywhere in the code
+-	Right-click
+-	Select "CodeLock" from context menu
+-	Select "Lock region" from context menu
 ### Result:
 Check CodeLock tool window -> Regions
-New region added
+A new region has been added, but it is not highlighted with a blue background, making it difficult to understand what exactly has been locked
 ### Expected result:
-Impossible to lock an empty region
+It is not possible to lock an empty region
 
-## 8. Remove few blocked regions. It's needed a few attempts to remove last region
+## 8. Remove multiple regions may require multiple attempts to delete the last one
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -148,18 +171,23 @@ public class Class1 {
 	private String myText;
 }
 ```
-Region 	```private String myText;``` is locked
-Region ```private int myNumber;``` is locked
+-	The region ```private String myText;``` is locked
+-	The Region ```private int myNumber;``` is locked
 ### STR:
-IDE -> CodeLock tool window -> Regions -> Delete 1-st region -> Delete 2-nd region
+-	Open the CodeLock menu
+-	Select "Regions"
+-	Select the first locked region
+-	Press the "Remove <<" button
+-	Select the second locked region
+-	Press the "Remove <<" button
 ### Result:
-2-nd region don't deleted (still in list), it's needed a few attemtps to remove last region
+The second region is not being deleted, and it requires multiple attempts to remove it
 ### Expected result:
-2-nd region deleted by one attmept
+The second region is deleted on the first attempt
 
-## 9. Unnessesary warning message for removing region
+## 9. Unnecessary warning when deleting regions
 ### Preconditions:
-Project contains class "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -168,54 +196,59 @@ public class Class1 {
 	private String myText;
 }
 ```
-Region 	```private String myText;``` is locked
+-	The region ```private String myText;``` is locked
 ### STR:
-IDE -> CodeLock tool window -> Regions -> Press Remove region
+-	Open the CodeLock menu
+-	Select "Regions"
+-	Select the locked region
+-	Press the "Remove <<" button
 ### Result:
-Unnessesary warning message with text "The Element you are removing has children Are you sure you want to remove it?"
+Unnecessary warning with the text "The Element you are removing has children. Are you sure you want to remove it?"
 ### Expected result:
-There is no warning messages, Region it's a part of code and has not "chidlren"
-
+There are no warnings during the deletion of a region. A region is a part of the code and does not have any children.
 
 ## 10. It is possible to lock an interface
 ### Preconditions:
-Project contains interface "Interface1" with following code:
+-	The project contains an interface named "Interface1" with the following code:
 ```
 package mypackage;
 
 public interface Interface1 {
-IDE -> CodeLock tool window ->
 }
 ```
 ### STR:
-IDE -> Project tree menu -> select Interface1 -> Right click on interface name -> CodeLock -> Lock Code
-Check IDE -> CodeLock tool window -> Elements
+-	Open the Project tree
+-	Select Interface1
+-	Right-click on the Interface1
+-	Select "CodeLock" from context menu
+-	Select "Lock code" from context menu
 ### Result:
-The Interface1 is locked and displayed in the list of locked items as a class.
+Interface1 has been locked and is displayed in the list of locked elements as a class
 ### Expected result:
-The Interface1 cannot be locked and is not displayed in the list of items
+Interface1 cannot be locked (there is no mention of such functionality in the plugin description).
 
-## 11. Lock Class. Wrong expansion of the tree.
+## 11. The class is locked, and there is incorrect tree expansion display in the CodeLock menu
 ### Preconditions:
-Project contains interface "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
 public class Class1 {
 }
 ```
-Class1 is locked
+-	Class1 is locked and highlighted with a blue background
 ### STR:
-IDE -> CodeLock tool window -> Elements
-Open folder Class1.java
+-	Open the CodeLock menu
+-	Select "Elements"
+-	Open the folder "Class1.java" of the class in the tree
 ### Result:
-There is a plus sign to expand the tree for Class1
+The plus icon to expand the tree is displayed next to the "Class1"
 ### Expected result:
-There is no a plus sign to expand the tree for Class1, because Class1 is entirely locked
+There are no plus icons to expand the tree for the locked class as the class is fully locked
 
-## 12. It is impossible to lock nested class as element.
+## 12. It is not possible to lock a nested class as an element
 ### Preconditions:
-Project contains interface "Class1" and nested "NestedClass1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
@@ -225,35 +258,18 @@ public class Class1 {
 }
 ```
 ### STR:
-IDE -> Project tree menu -> Open Class1 -> Put cursor on "NestedClass1" -> Right click -> CodeLock -> Lock Code
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Place the cursor on "NestedClass1"
+-	Right-click
+-	Select "CodeLock" from context menu
+-	Select "Lock code" from context menu
 ### Result:
-NestedClass1 was not locked.
+The "NestedClass1" was not locked
 ### Expected result:
-NestedClass1 was locked.
+The "NestedClass1" class has been locked
 
-## 13. It is impossible to lock method in nested class as element
-### Preconditions:
-Project contains interface "Class1" and nested "NestedClass1" with following code:
-package mypackage;
-```
-public class Class1 {
-	public class NestedClass1 {
-		private int myNumber;
-		
-		public int getNumber() {
-			return myNumber;
-			}
-		}
-}
-```
-### STR:
-IDE -> Project tree menu -> Open Class1 -> Put cursor on "getNumber" method -> Right click -> CodeLock -> Lock Code
-### Result:
-getNumber method was not locked.
-### Expected result:
-getNumber method was locked.
-
-## 14. CodeLock conxtext menu "CodeLock Graph" is not worked
+## 13. CodeLock conxtext menu "CodeLock Graph" is not clear what must happened
 ### Preconditions:
 Project contains interface "Class1" with following code:
 ```
@@ -271,4 +287,4 @@ Error during dispatching of ...(logs in attachment)
 ### Expected result:
 There are no any errors, Class1 is added to Code Graph menu as locked ??
 
-## 15. 
+## 14. Unexpected behavior. Lock some method of Class. Try to block class.
