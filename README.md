@@ -1,5 +1,5 @@
 # 1.	Generating code for an empty interface
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -16,14 +16,15 @@ Package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There are no implemented methods
 
 # 2. Generating code for an interface with 1 method
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -41,10 +42,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+  ### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -59,7 +61,7 @@ func (t TestedStruct) SomeMethod(){
 }
 ```
 # 3. Generating code for an interface with > 1 method
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -82,10 +84,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There are 2 implemeted func exist
 ```
 package main
@@ -115,7 +118,7 @@ func (t TestedStruct) SomeMethodN(){
 ```
 
 # 4. Generating code for an interface with existing methods in a structure
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -138,7 +141,7 @@ func (t TestedStruct) SomeMethod(){
 	panic("implement me")
 }
 ```
-Steps:
+### Steps:
 -	Open file interface.go and add one more method for TestedInterface:
 ```
 package main
@@ -152,6 +155,7 @@ type TestedInterface interface {
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There are 2 implemeted func exist
 ```
 package main
@@ -172,7 +176,7 @@ func (t TestedStruct) SomeMethod2(){
 ```
 
 # 5. Generating code when implementing an interface with nested interface
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -194,10 +198,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -213,7 +218,7 @@ func (t TestedStruct) SomeMethod(){
 ```
 # 6. Generating code when implementing an interface with methods that have arguments
 
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -231,10 +236,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -249,8 +255,7 @@ func (t TestedStruct) MethodWithArgs(arg1 string, arg2 string){
 }
 ```
 # 7. Generating code when implementing an interface with methods that have arguments of different types
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -268,10 +273,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -285,9 +291,8 @@ func (t TestedStruct) MethodWithArgs(arg1 string, arg2 int){
 	panic("implement me")
 }
 ```
-# 8. Generating code when implementing an interface with methods that have only argument types
-
-Preconditions:
+# 8. Generating code when implementing an interface with methods that have only argument type
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -305,10 +310,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -323,8 +329,7 @@ func (t TestedStruct) MethodWithArgs(s string, i int){
 }
 ```
 # 9. Test Scenario: Generating code when implementing an interface with methods that return data.
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -342,10 +347,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -360,8 +366,7 @@ func (t TestedStruct) MethodWithReturn()(arg1 string){
 }
 ```
 # 10. Generating code when implementing an interface with methods that return data without specifying arguments.
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -379,10 +384,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -398,8 +404,7 @@ func (t TestedStruct) MethodWithArgs() (string, int) {
 ```
 
 # 11. Generating code when implementing an interface with methods that return data with different types
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -417,10 +422,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -436,8 +442,7 @@ func (t TestedStruct) MethodWithArgs()(arg1 string, arg2 int){
 ```
 
 # 12. Generating code for multiple interface implementation
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -459,7 +464,7 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface1 and select it
@@ -479,6 +484,7 @@ func (t TestedStruct) Method1(){
 - Select struct name in file struct.go
 - Press Alt+Enter and select "Implement interface"
 - Start type name of Interface TestedInterface2 and select it
+### Result:
 - Check file struct.go There is 2 implemented func exist
 ```
 package main
@@ -499,7 +505,7 @@ func (t TestedStruct) Method2(){
 ```
 
 # 13. Generating code when implementing an interface with methods that have nested structs as arguments:
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -521,10 +527,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -539,8 +546,7 @@ func (t TestedStruct) Method1(arg NestedStruct){
 }
 ```
 # 14. Generating code for an interface with methods having variadic arguments
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -558,10 +564,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
@@ -576,8 +583,7 @@ func (t TestedStruct) MethodWithReturn(args ...int){
 }
 ```
 # 15. Generating code for an interface with an embedded type
-
-Preconditions:
+### Preconditions:
 -	Project contains file interface.go with following code:
 ```
 package main
@@ -595,10 +601,11 @@ package main
 type TestedStruct struct {
 }
 ```
-Steps:
+### Steps:
 -	Select struct name in file struct.go
 -	Press Alt+Enter and select “Implement interface”
 -	Starts type name of interface TestedInterface and select it
+### Result:
 -	Check file struct.go: There is 1 implemeted func exist
 ```
 package main
