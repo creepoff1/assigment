@@ -269,22 +269,61 @@ The "NestedClass1" was not locked
 ### Expected result:
 The "NestedClass1" class has been locked
 
-## 13. CodeLock conxtext menu "CodeLock Graph" is not clear what must happened
+## 13. CodeLock Graph does not show nested classes and methods of a locked class
 ### Preconditions:
-Project contains interface "Class1" with following code:
+-	The project contains a class named "Class1" with the following code:
 ```
 package mypackage;
 
 public class Class1 {
+	public class NestedClass1 {
+		private int myNumber;
 
+		public int getNumber() {
+			return myNumber;
+			}
+		}
 }
 ```
+-	Class1 is locked and highlighted with a blue background
 ### STR:
-IDE -> Project tree menu -> Open Class1 -> Put cursor on "Class1" -> Right click -> CodeLock -> CodeLock Graph
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Right-click
+-	Select "CodeLock" from context menu
+-	Select "CodeLock Graph" from context menu
 ### Result:
-IDE Fatal Error 
-Error during dispatching of ...(logs in attachment)
+CodeGraph does not display nested classes, methods, and fields
 ### Expected result:
-There are no any errors, Class1 is added to Code Graph menu as locked ??
+CodeGraph shows nested classes, methods, and fields
+```
+P.S.
+The CodeLock CodeGraph functionality is highly debated. Firstly, it duplicates the functionality of CodeGraph. Secondly, it requires the code to be locked before building the diagram through CodeLock CodeGraph.
+It is necessary to clarify the requirements for the CodeLock CodeGraph functionality
+```
+## 14. Unexpected behavior. Locking a class that already contains a locked method
+### Preconditions:
+-	The project contains a class named "Class1" with the following code:
+```
+package mypackage;
 
-## 14. Unexpected behavior. Lock some method of Class. Try to block class.
+public class Class1 {
+	private int myNumber;
+
+	public int getNumber() {
+		return myNumber;
+	}
+}
+```
+-	Method ```getNumber``` is locked and highlighted with a blue background
+### STR:
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Right-click on Class1
+-	Select "CodeLock" from context menu
+-	Select "Lock Code" from context menu
+### Result:
+It is not possible to lock Class1 + some side effects like:
+It is not possible to unlock the method "getNumber". It is removed from the list of elements but remains locked for editing
+### Expected result:
+It is possible to lock Class1
