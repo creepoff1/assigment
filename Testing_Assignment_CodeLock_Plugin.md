@@ -327,3 +327,5 @@ It is not possible to lock Class1 + some side effects like:
 It is not possible to unlock the method "getNumber". It is removed from the list of elements but remains locked for editing
 ### Expected result:
 It is possible to lock Class1
+
+## Gray out actions
