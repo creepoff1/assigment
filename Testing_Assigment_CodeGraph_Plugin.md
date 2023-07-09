@@ -1,4 +1,4 @@
-
+# Within the scope of the given task, the CodeGraph plugin for IntelliJ IDEA 7 was tested, and the following bugs were found:
 ## 1. There is no tooltip displayed on the class
 ### Preconditions:
 -	The project contains a class named "Class1" with the following code:
