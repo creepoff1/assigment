@@ -97,7 +97,7 @@ public class Class1 {
 ```
 - The entire project is displayed in CodeGraph
 ### STR: 
-- Change code in "Class1", comment ```mymethod()```:
+- 	Change code in "Class1", comment ```mymethod()```:
 ```
 package mypackage;
 
@@ -117,7 +117,7 @@ public class Class1 {
     }  
 }
 ```
-- Open the Project tree
+- 	Open the Project tree
 -	Place the cursor on package "mypackage"
 -	Invoke the context menu by right-clicking
 -	Select "CodeGraph" from the context menu
@@ -140,8 +140,8 @@ public class Class1 {
 ```
 - The entire project is displayed in CodeGraph
 ### STR:
-- Change code in "Class1", delete method ```mymethod()```
-- Open the Project tree
+- 	Change code in "Class1", delete method ```mymethod()```
+- 	Open the Project tree
 -	Place the cursor on package "mypackage"
 -	Invoke the context menu by right-clicking
 -	Select "CodeGraph" from the context menu
@@ -215,8 +215,8 @@ public class Class1 {
 ```
 - The entire project is displayed in CodeGraph
 ### STR:
-- Open CodeGraph
-- Select field myField
+- 	Open CodeGraph
+- 	Select field myField
 -	Invoke the context menu by right-clicking
 -	Press "Add field's type"
 ### Result:
@@ -237,8 +237,8 @@ public interface Interface1 {
 }
 ```
 ### STR:
-- Open the Project tree
-- Select Interface1 in the project tree
+- 	Open the Project tree
+- 	Select Interface1 in the project tree
 -	Invoke the context menu by right-clicking
 -	Select "CodeGraph" from the context menu
 -	Press "Add Element"
@@ -273,3 +273,27 @@ public class Class1 {
 CodeGraph does not display the project
 ### Expected result:
 CodeGraph displays the entire project correctly
+## 10. It is necessary to add validation for the permissibility of an option in CodeGraph and indicate in gray the elements that are not available
+### Preconditions:
+-	The project contains a class named "Class1" with the following code:
+```
+package mypackage;
+
+public class Class1 {
+}
+```
+-	The Class1 is displayed in CodeGraph
+### STR:
+- 	Open the Project tree
+- 	Select Class1 in the project tree
+-	Invoke the context menu by right-clicking
+-	Select "CodeGraph" from the context menu
+### Result:
+All options are available for use
+### Expected result:
+The "Add Element" option should be marked as unavailable since Class1 is already added in CodeGraph
+```
+P.S.
+
+This is just one example where it would be beneficial to block certain options from the context menu. It is important to conduct further investigation and add checks where necessary to ensure appropriate functionality and restrictions
+```
