@@ -613,3 +613,63 @@ func (t TestedStruct) MethodWithReturn(args ...int){
 	panic("implement me")
 }
 ```
+## 15. It is possible to implement an interface from the "standard" set
+-	The project contains a file named struct.go with the following code:
+```
+package main
+
+
+type TestedStruct struct {
+}
+```
+### Steps:
+-	Open the struct.go file for editing
+-	Place the cursor on the name of the structure TestedStruct
+-	Press Alt+Enter to invoke the context menu and double-click on the "Implement interface" option
+-	Start typing some name from "standart name" for example "addrer"
+-	Double-click on the "addrer" interface to select it
+### Result:
+-	Сheck the struct.go file: One function has been implemented for the interface method
+```
+package main
+
+
+type TestedStruct struct {
+}
+
+func (t TestedStruct) Addr() uintptr{
+	//TODO implement me
+	panic("implement me")
+}
+```
+## 16. It is not possible to implement an interface if all of its methods have already been implemented
+### Preconditions:
+-	The project contains a file named interface.go with the following code:
+```
+package main
+
+
+type TestedInterface interface {
+	SomeMethod()
+}
+```
+-	The project contains a file named struct.go with the following code:
+```
+package main
+
+
+type TestedStruct struct {
+}
+
+func (t TestedStruct) SomeMethod(){
+	//TODO implement me
+	panic("implement me")
+}
+```
+### Steps:
+-	Open the struct.go file for editing
+-	Place the cursor on the name of the structure TestedStruct
+-	Press Alt+Enter to invoke the context menu and double-click on the "Implement interface" option
+-	Start typing the name of the interface "TestedInterface"
+  ### Result:
+"TestedInterface" is not shown in the list
