@@ -6,7 +6,7 @@
 ```
 package mypackage;
 
-public class Class2 {
+public class Class1 {
 }
 ```
 ### STR:
