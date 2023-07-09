@@ -327,3 +327,27 @@ It is not possible to lock Class1 + some side effects like:
 It is not possible to unlock the method "getNumber". It is removed from the list of elements but remains locked for editing
 ### Expected result:
 It is possible to lock Class1
+
+## 15. It is necessary to add validation for the permissibility of an option in CodeLock and indicate in gray the elements that are not available.
+-	The project contains a class named "Class1" with the following code:
+```
+package mypackage;
+
+public class Class1 {
+}
+```
+-	Class1 is locked and highlighted with a blue background
+### STR:
+-	Open the Project tree
+-	Open Class1 in the editing window
+-	Place the cursor on Class1
+- 	Right-click on Class1
+-	Select "CodeLock" from context menu
+### Result:
+All options are available for use
+### Expected result:
+The "Lock Code" option is blocked because Class1 is already locked and will not be locked again
+```
+P.S.
+This is just one example where it would be beneficial to block certain options from the context menu. It is important to conduct further investigation and add checks where necessary to ensure appropriate functionality and restrictions.
+```
